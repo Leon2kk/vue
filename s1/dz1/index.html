@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+	
     <title>DZ 1 Введение в Vue.js</title>
 	<style type="text/css">
 		button {width: 150px; height: 50px; font-size: 18px; margin: 100px;}
 	</style>
 </head>
-	<body id="app">
-		<button> {{buttonName}} </button>
-		
-		
-		<script src="script.js"></script>
-	</body>
+<body id="app">
+	<button> {{ message }} </button>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+			message: "Кнопка"
+			}
+		})
+	</script>
+</body>
 </html>
