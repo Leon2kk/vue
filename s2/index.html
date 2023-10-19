@@ -5,27 +5,62 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 	
     <title>DZ 2 Фреймворк Vue.js</title>
-	<style type="text/css">
-		button {width: 150px; height: 50px; font-size: 18px; margin: 100px;}
-	</style>
+	<style>
+		.container {
+		  max-width: 600px;
+		  margin: 0 auto;
+		  padding: 20px;
+		}
+		.product {
+		  margin-bottom: 20px;
+		  border: 1px solid #ccc;
+		  padding: 10px;
+		  border-radius: 5px;
+		  overflow: hidden;
+		}
+		.product img {
+		  max-width: 100%;
+		  height: auto;
+		  margin-bottom: 10px;
+		}
+		.product .name {
+		  font-size: 20px;
+		  font-weight: bold;
+		  margin-bottom: 5px;
+		}
+		.product .description {
+		  font-size: 16px;
+		  margin-bottom: 5px;
+		}
+		.product .price {
+		  font-size: 18px;
+		  color: #00b300;
+		}
+		.product .availability {
+		  font-size: 16px;
+		  color: #333;
+		  font-weight: bold;
+		}
+		.product .redtext{
+			color: rgb(217, 0, 0);
+		}
+	  </style>
 </head>
 <body>
-	<div  id="app"> 
-		<button v-on:click="changeName"> {{ buttonName }} </button>
+	<div  id="app">
+		<div>
+			<span>Сортировка по цене:</span>
+			<button @click="sortByASC">↑</button>
+			<button @click="sortByDESC">↓</button>
+		</div>
 
-		<ul>
-			<li v-for="(item, index) in items" :key="index">
-				{{ item }}
-			</li>
-		</ul>
-
-		<button v-on:click="addItem">Добавить элемент</button>
+		<article v-for="item in production" :key="item.id" class="product">
+			<h2 class="name">{{item.name}}</h2>
+			<p class="description">{{item.description}}</p>
+			<p class="price"> {{item.price}} </p>
+			<p class="availability">В наличий: <span :class="{redtext: !item.availability}">{{item.availability?'Да':'Нет'}}</span></p>
+		</article>
 	</div>
-
-
-
-
-
 
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -33,18 +68,72 @@
 		new Vue({
 				el: '#app',
 				data: {
-					buttonName: "КНОПКА",
-					itemName: "Новый элемент списк",
-					items: ["Старый элемент списка", "Старый элемент списка"],
+					sortField: '',	
+					orderBy: 'ASC',
+					production:
+						[
+						{
+							"name": "Яблоко",
+							"description": "Свежее и сочное зеленое яблоко",
+							"image": "https://example.com/apple.jpg",
+							"price": 1.99,
+							"availability": true
+						},
+						{
+							"name": "Банан",
+							"description": "Зрелый и сладкий желтый банан",
+							"image": "https://example.com/banana.jpg",
+							"price": 0.99,
+							"availability": false
+						},
+						{
+							"name": "Морковь",
+							"description": "Красная морковь полезна для зрения",
+							"image": "https://example.com/carrot.jpg",
+							"price": 0.50,
+							"availability": true
+						},
+						{
+							"name": "Огурец",
+							"description": "Свежий и хрустящий огурец",
+							"image": "https://example.com/cucumber.jpg",
+							"price": 0.75,
+							"availability": true
+						},			
+						{
+							"name": "Курица",
+							"description": "Сочное и нежное мясо курицы",
+							"image": "https://example.com/chicken.jpg",
+							"price": 5.99,
+							"availability": false
+						},
+						{
+							"name": "Говядина",
+							"description": "Питательная и сочная говядина",
+							"image": "https://example.com/beef.jpg",
+							"price": 8.75,
+							"availability": true
+						},
+						{
+							"name": "Свинина",
+							"description": "Вкусная и ароматная свинина",
+							"image": "https://example.com/pork.jpg",
+							"price": 6.50,
+							"availability": false
+						}
+						],
 				},
 				methods: {
-					changeName() {
-						this.buttonName = this.buttonName.split("").reverse().join("");
-					},
-					addItem() {
-						this.items.push(this.itemName);
+					sortByASC(){
+						return this.production.sort((a, b) =>
+                            a.price > b.price ? 1 : -1
+                        )},
+					sortByDESC(){
+						return this.production.sort((a, b) =>
+                            a.price < b.price ? 1 : -1
+                        );							
 					}
-				}
+				},
 			})
 	</script>
 </body>
