@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	
+    <title>DZ 2 Фреймворк Vue.js</title>
+	<style type="text/css">
+		button {width: 150px; height: 50px; font-size: 18px; margin: 100px;}
+	</style>
+</head>
+<body>
+	<div  id="app"> 
+		<button v-on:click="changeName"> {{ buttonName }} </button>
+
+		<ul>
+			<li v-for="(item, index) in items" :key="index">
+				{{ item }}
+			</li>
+		</ul>
+
+		<button v-on:click="addItem">Добавить элемент</button>
+	</div>
+
+
+
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+	<script>
+		new Vue({
+				el: '#app',
+				data: {
+					buttonName: "КНОПКА",
+					itemName: "Новый элемент списк",
+					items: ["Старый элемент списка", "Старый элемент списка"],
+				},
+				methods: {
+					changeName() {
+						this.buttonName = this.buttonName.split("").reverse().join("");
+					},
+					addItem() {
+						this.items.push(this.itemName);
+					}
+				}
+			})
+	</script>
+</body>
+</html>
