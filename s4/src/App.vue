@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Details</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style/style.css" />
-  </head>
-  <body>
-    <header class="header center">
+<template>
+
+  <div id="app">
+    
+   <header class="header center">
       <a href="#" class="header__link-logo">
-        <img src="img/logo.svg" alt="logo" class="header__logo" />
+        <img src="./assets/img/logo.svg" alt="logo" class="header__logo" />
       </a>
       <nav class="header__nav">
         <a href="#" class="header__nav-link">Home</a>
@@ -26,7 +15,7 @@
     <main class="blog-intro center"></main>
     <div id="app" class="blog-articles center">
       <div class="blog-articles__articles">
-        <blog-articles v-for="article in filterBlogs" :key="article.id" :article="article"></blog-articles>
+        <BlogDetails v-for="article in filterBlogs" :key="article.id" :article="article"/>
       </div>
       <div class="blog-articles__tabs-block">
         <h3 class="blog-articles__tabs-title">Tags</h3>
@@ -38,7 +27,7 @@
     <footer class="footer center">
       <div class="footer__content">
         <div class="footer__description">
-          <img src="img/logo.svg" alt="Logo" class="footer__logo" />
+          <img src="./assets/img/logo.svg" alt="Logo" class="footer__logo" />
           <p class="footer__text">
             It is a long established fact that a reader will be distracted
             lookings.
@@ -98,8 +87,29 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+    
+  </div>
+
+</template>
+
+<script>
+import BlogDetails from './components/BlogDetails.vue';
+
+export default {
+  name: 'App',
+  components: {
+    BlogDetails
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
