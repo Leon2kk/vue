@@ -19,14 +19,14 @@ import ProjectComponent from './components/ProjectComponent.vue';
 
 export default {
   name: 'App',
-  components: {
+  components:{
     HeaderComponent,
     FooterComponent,
     BlogDetailsComponent,
     IndexComponent,
     NewsComponent,
     ProjectComponent,
-}
+  }
 }
 </script>
 
