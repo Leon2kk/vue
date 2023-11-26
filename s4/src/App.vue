@@ -1,5 +1,6 @@
 <template>
   <HeaderComponent />
+  <ProjectDetailsComponent />
   <ProjectComponent />
   <IndexComponent />  
   <NewsComponent />
@@ -16,6 +17,7 @@ import BlogDetailsComponent from './components/BlogDetailsComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
 import NewsComponent from './components/NewsComponent.vue';
 import ProjectComponent from './components/ProjectComponent.vue';
+import ProjectDetailsComponent from './components/ProjectDetailsComponent.vue';
 
 export default {
   name: 'App',
@@ -26,6 +28,7 @@ export default {
     IndexComponent,
     NewsComponent,
     ProjectComponent,
+    ProjectDetailsComponent,
   }
 }
 </script>
