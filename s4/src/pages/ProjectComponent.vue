@@ -138,6 +138,7 @@
 
 <script>
     export default {  
+        name: 'ProjectPage',
     }
 </script>
 

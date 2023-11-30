@@ -136,6 +136,7 @@
 
 <script>
     export default {
+      name: 'NewsPage',
         data() {
             return {
                 articles: [

@@ -38,7 +38,8 @@
 
 <script>
 export default {
-    props: ['article']
+    props: ['article'],
+    name: 'BlogPage',
 }
 </script>
 
