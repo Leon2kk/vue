@@ -8,9 +8,10 @@
       />
     </a>
     <nav class="header__nav">
-      <a href="#" class="header__nav-link">Home</a>
-      <a href="#" class="header__nav-link">Project</a>
-      <a href="#" class="header__nav-link">Blog</a>
+      <a href="/" class="header__nav-link">Home</a>
+      <a href="/projects" class="header__nav-link">Project</a>
+      <a href="/blog" class="header__nav-link">Blog</a>
+      <a href="/news" class="header__nav-link">News</a>
     </nav>
   </header>
 </template>

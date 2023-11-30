@@ -48,9 +48,10 @@
           <h3 class="footer__nav-title">Pages</h3>
           <ul class="footer__nav-list">
             <li class="footer__nav-item">
-              <a href="#" class="header__nav-link">Home</a>
-              <a href="#" class="header__nav-link">Project</a>
-              <a href="#" class="header__nav-link">Blog</a>
+              <a href="/" class="header__nav-link">Home</a>
+              <a href="/projects" class="header__nav-link">Project</a>
+              <a href="/blog" class="header__nav-link">Blog</a>
+              <a href="/news" class="header__nav-link">News</a>
             </li>
           </ul>
         </nav>
