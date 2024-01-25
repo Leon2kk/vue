@@ -1,0 +1,11 @@
+.news__items{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 27px;
+  }
+  
+  .center {
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
+  }
